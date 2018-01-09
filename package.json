@@ -4,6 +4,7 @@
   "description": "Sample app showcasing server-side rendering and code-splitting with react-router 4",
   "main": "server.js",
   "dependencies": {
+    "compression": "1.7.1",
     "express": "^4.15.2",
     "lodash": "4.17.4",
     "rc-slider": "8.6.0",
@@ -22,13 +23,15 @@
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "0.28.8",
     "extract-text-webpack-plugin": "3.0.2",
+    "html-webpack-plugin": "2.30.1",
+    "rimraf": "2.6.2",
     "webpack": "^3.1.0",
     "webpack-bundle-analyzer": "2.9.2",
     "webpack-node-externals": "^1.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack && node index.js"
+    "start": "rimraf build/* && webpack && node index.js"
   },
   "author": "Emile Cantin",
   "license": "MIT"
