@@ -3,16 +3,23 @@ import PropTypes from 'prop-types';
 import Switch from 'react-router-dom/Switch';
 import Route from 'react-router-dom/Route';
 
-import LandingPage from './pages/Landing';
-import AccountOverview from './pages/account/AccountOverview';
-import AccountPersonalData from './pages/account/AccountPersonalData';
+import Error404 from './pages/error/Error404';
+import asyncComponentFactory from './utils/asyncutils';
+
+const AsyncLandingPage = asyncComponentFactory(() =>
+    import(/* webpackChunkName: "landing" */ './pages/Landing')
+);
+
+const AsyncAccountRoutes = asyncComponentFactory(() =>
+    import(/* webpackChunkName: "account" */ './pages/account/AccountRoutes')
+);
 
 export default function Routes({history, location}) {
   return (
     <Switch location={location}>
-      <Route exact path="/" component={LandingPage} />
-      <Route exact path="/account" component={AccountOverview} />
-      <Route exact path="/account/personaldata" component={AccountPersonalData} />
+      <Route exact path="/" component={AsyncLandingPage} />
+      <Route path="/account" component={AsyncAccountRoutes} />
+      <Route path="**/*" component={Error404} />
     </Switch>
   );
 }

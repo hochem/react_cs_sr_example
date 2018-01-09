@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 function AccountPersonalData() {
   return (
     <div>
-      <h2>This is a nested route</h2>
+      <h2>This is a nested route!</h2>
     </div>
   );
 }

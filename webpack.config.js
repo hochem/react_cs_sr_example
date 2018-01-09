@@ -9,6 +9,7 @@ const clientConfig = {
     path: `${__dirname}/build`,
     filename: 'client.js',
     publicPath: '/',
+    chunkFilename: 'chunks/[name]-[chunkhash].js'
   },
   module: {
     rules: [{

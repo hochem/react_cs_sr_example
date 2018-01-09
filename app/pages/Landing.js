@@ -6,7 +6,7 @@ import {string5k} from '../utils/heavyutils';
 function Landing() {
   return (
     <div>
-      <h1>This is the landing page</h1>
+      <h1>This is the landing page!</h1>
       <Link to="/account">Go to account</Link>
     </div>
   );
