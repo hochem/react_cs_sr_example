@@ -4,7 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {AsyncComponentProvider, createAsyncContext} from 'react-async-component';
 import asyncBootstrapper from 'react-async-bootstrapper';
 
-import Routes from './app/routes';
+import Routes from './routes';
 
 const mountNode = document.getElementById('app');
 

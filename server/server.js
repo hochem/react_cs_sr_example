@@ -3,7 +3,7 @@ import path from 'path';
 import express from 'express';
 import compression from 'compression';
 
-import reactApplication from './server/middleware/reactApplication';
+import reactApplication from './middleware/reactApplication';
 
 const app = express();
 

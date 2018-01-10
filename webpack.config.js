@@ -8,7 +8,7 @@ const AssetsPlugin = require('assets-webpack-plugin');
 
 const clientConfig = {
   entry: {
-    client: './client.js',
+    client: './app/client.js',
     vendor: ['react', 'react-dom', 'lodash', 'moment']
   },
   output: {
@@ -47,7 +47,7 @@ const clientConfig = {
 };
 
 const serverConfig = {
-  entry: ['./index.js'],
+  entry: ['./server/server.js'],
   output: {
     path: `${__dirname}/build`,
     filename: 'server.js',
