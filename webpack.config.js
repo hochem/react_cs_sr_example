@@ -41,26 +41,6 @@ const clientConfig = {
   ]
 };
 
-const serverConfig = {
-  entry: './server.js',
-  output: {
-    path: `${__dirname}/build`,
-    filename: 'server.js',
-    libraryTarget: 'commonjs2',
-  },
-  target: 'node',
-  module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    }]
-  },
-  externals: [nodeExternals()],
-  // Server build configuration
-};
-
 module.exports = [
-  clientConfig,
-  serverConfig
+  clientConfig
 ];

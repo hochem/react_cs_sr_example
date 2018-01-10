@@ -33,6 +33,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "rimraf build/* && webpack && node index.js"
   },
-  "author": "Emile Cantin",
+  "author": "Martin Hochenwarter, Emile Cantin",
   "license": "MIT"
 }
