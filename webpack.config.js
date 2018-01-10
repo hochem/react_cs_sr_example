@@ -21,12 +21,12 @@ const clientConfig = {
     {
       test: /\.css$/,
       use: ExtractTextPlugin.extract({
-        use: "css-loader"
+        use: 'css-loader'
       })
     }]
   },
   plugins: [
-    new ExtractTextPlugin("app.css"),
+    new ExtractTextPlugin('app.css'),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       defaultSizes: 'gzip',
