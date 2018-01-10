@@ -22,15 +22,15 @@ export default function expressMiddleware(req, res, next) {
     </AsyncComponentProvider>
   );
 
-  console.log(clientEntryAssets);
-
   asyncBootstrapper(app).then(() => {
     const appString = renderToString(app);
     const asyncState = asyncContext.getState();
+
     const html = `
       <html>
         <head>
           <title>My App</title>
+          <link href="${clientEntryAssets.client.css}" rel="stylesheet" type="text/css" />
         </head>
         <body>
           <div id="app">${appString}</div>
@@ -40,7 +40,7 @@ export default function expressMiddleware(req, res, next) {
           <script type="text/javascript" src="${clientEntryAssets.vendor.js}"></script>
           <script type="text/javascript" src="${clientEntryAssets.client.js}"></script>
         </body>
-      </html>`
+      </html>`;
 
     res.send(html);
   });

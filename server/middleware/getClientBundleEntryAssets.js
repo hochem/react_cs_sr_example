@@ -13,7 +13,7 @@ export default function getClientBundleEntryAssets() {
 
   const readAssetsJSONFile = () => JSON.parse(fs.readFileSync(assetsFilePath, 'utf8'));
   const assetsJSON = readAssetsJSONFile();
-  console.log(assetsJSON);
+
   if (typeof assetsJSON.client === 'undefined') {
     throw new Error('No asset data found for expected "client" entry chunk of client bundle.');
   }
