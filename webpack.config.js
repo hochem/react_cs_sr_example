@@ -14,20 +14,20 @@ const clientConfig = {
     chunkFilename: 'chunks/[name]-[chunkhash].js'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    },
-    {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        use: "css-loader"
-      })
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader']})
+      }
+    ]
   },
   plugins: [
-    new ExtractTextPlugin("app.css"),
+    new ExtractTextPlugin({filename: '[name]-[contenthash].css', allChunks: true}),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       defaultSizes: 'gzip',
