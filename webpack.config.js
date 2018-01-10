@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const clientConfig = {
   entry: {
     client: './client.js',
-    vendor: ['react', 'react-dom', 'lodash']
+    vendor: ['react', 'react-dom', 'lodash', 'moment']
   },
   output: {
     path: `${__dirname}/build`,
