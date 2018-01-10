@@ -2,19 +2,23 @@
   "name": "ssr_code-splitting_sample",
   "version": "1.0.0",
   "description": "Sample app showcasing server-side rendering and code-splitting with react-router 4",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
+    "app-root-dir": "1.0.2",
+    "assets-webpack-plugin": "3.5.1",
     "compression": "1.7.1",
     "express": "^4.15.2",
     "lodash": "4.17.4",
     "moment": "2.20.1",
     "rc-slider": "8.6.0",
     "react": "^15.5.4",
+    "react-async-bootstrapper": "1.1.2",
     "react-async-component": "https://github.com/hochem/react-async-component#retry-on-err",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
     "react-router-config": "^1.0.0-beta.3",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "serialize-javascript": "1.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -32,7 +36,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rimraf build/* && webpack && node index.js"
+    "start": "rimraf build/* && webpack && node build/server.js"
   },
   "author": "Martin Hochenwarter, Emile Cantin",
   "license": "MIT"

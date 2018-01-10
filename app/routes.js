@@ -7,11 +7,11 @@ import Error404 from './pages/error/Error404';
 import asyncComponentFactory from './utils/asyncutils';
 
 const AsyncLandingPage = asyncComponentFactory(() =>
-    import(/* webpackChunkName: "landing" */ './pages/Landing')
+  System.import(/* webpackChunkName: "landing" */ './pages/Landing')
 );
 
 const AsyncAccountRoutes = asyncComponentFactory(() =>
-    import(/* webpackChunkName: "account" */ './pages/account/AccountRoutes')
+  System.import(/* webpackChunkName: "account" */ './pages/account/AccountRoutes')
 );
 
 export default function Routes({history, location}) {
