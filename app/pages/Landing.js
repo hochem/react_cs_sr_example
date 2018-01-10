@@ -8,6 +8,8 @@ function Landing() {
     <div>
       <h1>This is the landing page</h1>
       <Link to="/account">Go to account</Link>
+      <br/>
+      <a href="report.html">Show webpack bundle report</a>
     </div>
   );
 }
