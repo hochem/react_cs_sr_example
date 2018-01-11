@@ -14,11 +14,16 @@ const AsyncAccountRoutes = asyncComponentFactory(() =>
   System.import(/* webpackChunkName: "account" */ './pages/account/AccountRoutes')
 );
 
+const AsyncProductRoutes = asyncComponentFactory(() =>
+  System.import(/* webpackChunkName: "product" */ './pages/product/ProductRoutes')
+);
+
 export default function Routes({history, location}) {
   return (
     <Switch location={location}>
       <Route exact path="/" component={AsyncLandingPage} />
       <Route path="/account" component={AsyncAccountRoutes} />
+      <Route path="/product" component={AsyncProductRoutes} />
       <Route path="**/*" component={Error404} />
     </Switch>
   );

@@ -1,23 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
-import {AsyncComponentProvider, createAsyncContext} from 'react-async-component';
+import {AsyncComponentProvider} from 'react-async-component';
+import {JobProvider} from 'react-jobs';
 import asyncBootstrapper from 'react-async-bootstrapper';
 
+import configureStore from './store/configureStore';
 import Routes from './routes';
 
 const mountNode = document.getElementById('app');
 
-const rehydrateState = window.ASYNC_COMPONENTS_STATE;
+const rehydrateStoreState = window.STORE_STATE;
+const rehydrateAsyncComponentState = window.ASYNC_COMPONENTS_STATE;
+const rehydrateJobState = window.JOBS_STATE;
+
+const store = configureStore(rehydrateStoreState);
 
 const app = (
-  <AsyncComponentProvider rehydrateState={rehydrateState}>
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+  <AsyncComponentProvider rehydrateState={rehydrateAsyncComponentState}>
+    <JobProvider rehydrateState={rehydrateJobState}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </Provider>
+    </JobProvider>
   </AsyncComponentProvider>
 );
 
 asyncBootstrapper(app).then(() => {
-  ReactDOM.render(app, mountNode)
+  render(app, mountNode);
 });
